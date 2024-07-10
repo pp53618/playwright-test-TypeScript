@@ -1,0 +1,12 @@
+[
+  {
+    "idTest": "1",
+    "testNameValue": "poprawnego użytkownika",
+    "firstNameValue": "Jan",
+    "lastNameValue": "Kowalski",
+    "emailValue": "janKowalski@wp.pl",
+    "telephoneValue": "123123123",
+    "passwordValue": "Hasło1",
+    "confirmPasswordValue": "Hasło1"
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+
+    /* Language and Environment */
+    "target": "ES6",    
+                                 
+    /* Modules */
+    "module": "commonjs",   
+    "resolveJsonModule": true, // Added to allow import of JSON files
+    "esModuleInterop": true, // Added to make it easier to import CommonJS modules 
+    
+    "forceConsistentCasingInFileNames": true,      
+       
+    /* Type Checking */
+    "strict": true,   
+                                              
+    "skipLibCheck": true                            
+  }
+}

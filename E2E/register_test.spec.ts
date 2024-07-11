@@ -16,7 +16,7 @@ test.describe("Register the account", () => {
     await pages.RegisterPage.enterPersonalDetails(
       user.firstNameValue,
       user.lastNameValue,
-      user.emailValue,
+      pages.CustomCommandsPage.generateRandomEmail(),
       user.telephoneValue,
       user.passwordValue,
       user.confirmPasswordValue

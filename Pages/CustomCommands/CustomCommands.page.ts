@@ -21,4 +21,9 @@ export class CustomCommands {
     await field.waitFor();
     await field.fill(value);
   }
+
+  generateRandomEmail(): string {
+    const randomString = Math.random().toString(36).substring(2, 8);
+    return `test+${randomString}@example.com`;
+  }
 }

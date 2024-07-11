@@ -11,6 +11,9 @@ export class Register {
   getTelephone = "#input-telephone";
   getPassword = "#input-password";
   getConfirmPassword = "#input-confirm";
+  BtnContinue = "input[value='Continue']";
+  checkboxPrivacyPolicy = "input[value='1'][name='agree']";
+  expectRegisterMessage = "div[id='content'] h1";
 
   async enterPersonalDetails(
     name: string,
@@ -29,7 +32,14 @@ export class Register {
       { fieldSelector: this.getConfirmPassword, value: confirmPassword },
     ];
 
-    for (const field of fields)
-      await this.CustomCommands.enterTextInField(field);
+    for (const field of fields) await this.CustomCommands.enterTextInField(field);
+  }
+
+  async checkConfirmRegisterMessage(expectedMessage: string) {
+    await this.CustomCommands.checkMessage(this.expectRegisterMessage, expectedMessage);
+  }
+
+  async checkFailedRegisterMessages(expectedMessage: string) {
+    await this.CustomCommands.checkMessage(this.expectRegisterMessage, expectedMessage);
   }
 }

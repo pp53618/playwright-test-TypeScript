@@ -1,6 +1,7 @@
 import { registerUrl } from "../Urls/test_url";
 import test, { Pages } from "../Pages/POMFixtures/POMFixtures";
 import userData from "../Test_Data/users_data.json";
+import messages from "../Test_Data/messages.json";
 
 let pages: Pages;
 
@@ -10,22 +11,48 @@ test.describe("Register the account", () => {
     pages = { CustomCommandsPage, RegisterPage };
   });
 
-  const correctUserData = userData.find((user) => user.idTest === "1");
+  const registerGroupPositive = userData.filter((user) => ["1", "2"].includes(user.idTest));
+  const registerGroupValidation = userData.filter((user) => ["3", "4", "5"].includes(user.idTest));
 
   async function executeRegisterTest(user: any): Promise<void> {
+    let emailValue = pages.CustomCommandsPage.generateRandomEmail();
+    if ("5".includes(user.idTest)) {
+      emailValue = user.emailValue;
+    }
+
     await pages.RegisterPage.enterPersonalDetails(
       user.firstNameValue,
       user.lastNameValue,
-      pages.CustomCommandsPage.generateRandomEmail(),
+      emailValue,
       user.telephoneValue,
       user.passwordValue,
       user.confirmPasswordValue
     );
+
+    await pages.CustomCommandsPage.checkCheckbox(pages.RegisterPage.checkboxPrivacyPolicy);
+    await pages.CustomCommandsPage.clickButton(pages.RegisterPage.BtnContinue);
+
+    if (user.idTest !== "3" && user.idTest !== "4" && user.idTest !== "5") {
+      await pages.RegisterPage.checkConfirmRegisterMessage(messages.Messages.confirmRegisterUser);
+    }
+    if (user.idTest !== "1" && user.idTest !== "2") {
+      await pages.RegisterPage.checkFailedRegisterMessages(messages.Messages.failedRegisterUser);
+    }
   }
 
-  test.describe("Poprawny użytkownik", () => {
-    test(`Test wprowadzania ${correctUserData?.testNameValue} = ${correctUserData?.idTest}`, async () => {
-      await executeRegisterTest(correctUserData);
+  test.describe("Rejestracja użytkonika testy od 1 do 2", () => {
+    registerGroupPositive.forEach((user) => {
+      test(`Rejestracja ${user.testNameValue} = ${user?.idTest}`, async () => {
+        await executeRegisterTest(user);
+      });
+    });
+  });
+
+  test.describe("Rejestracja użytkonika testy od 3 do 5", () => {
+    registerGroupValidation.forEach((user) => {
+      test.only(`Rejestracja ${user.testNameValue} = ${user?.idTest}`, async () => {
+        await executeRegisterTest(user);
+      });
     });
   });
 });

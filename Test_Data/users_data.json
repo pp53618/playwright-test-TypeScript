@@ -8,5 +8,45 @@
     "telephoneValue": "123123123",
     "passwordValue": "Hasło1",
     "confirmPasswordValue": "Hasło1"
+  },
+  {
+    "idTest": "2",
+    "testNameValue": "użytkownika z krótkim hasłem",
+    "firstNameValue": "Anna",
+    "lastNameValue": "Nowak",
+    "emailValue": "{{randomEmail}}",
+    "telephoneValue": "456456456",
+    "passwordValue": "H123",
+    "confirmPasswordValue": "H123"
+  },
+  {
+    "idTest": "3",
+    "testNameValue": "użytkownika z niepasującymi hasłami",
+    "firstNameValue": "Piotr",
+    "lastNameValue": "Wiśniewski",
+    "emailValue": "{{randomEmail}}",
+    "telephoneValue": "789789789",
+    "passwordValue": "Hasło123",
+    "confirmPasswordValue": "Hasło321"
+  },
+  {
+    "idTest": "4",
+    "testNameValue": "użytkownika bez nazwiska",
+    "firstNameValue": "Marek",
+    "lastNameValue": "",
+    "emailValue": "{{randomEmail}}",
+    "telephoneValue": "101112131",
+    "passwordValue": "Hasło2",
+    "confirmPasswordValue": "Hasło2"
+  },
+  {
+    "idTest": "5",
+    "testNameValue": "użytkownika z niepoprawnym e-mailem",
+    "firstNameValue": "Zofia",
+    "lastNameValue": "Kaczmarek",
+    "emailValue": "niepoprawny_email",
+    "telephoneValue": "141516171",
+    "passwordValue": "Hasło3",
+    "confirmPasswordValue": "Hasło3"
   }
 ]

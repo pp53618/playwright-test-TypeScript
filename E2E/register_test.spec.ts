@@ -50,7 +50,7 @@ test.describe("Register the account", () => {
 
   test.describe("Rejestracja użytkonika testy od 3 do 5", () => {
     registerGroupValidation.forEach((user) => {
-      test.only(`Rejestracja ${user.testNameValue} = ${user?.idTest}`, async () => {
+      test(`Rejestracja ${user.testNameValue} = ${user?.idTest}`, async () => {
         await executeRegisterTest(user);
       });
     });

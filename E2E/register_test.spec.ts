@@ -40,17 +40,17 @@ test.describe("Register the account", () => {
     }
   }
 
-  test.describe("Rejestracja użytkonika testy od 1 do 2", () => {
+  test.describe("User Registration Tests 1 to 2", () => {
     registerGroupPositive.forEach((user) => {
-      test(`Rejestracja ${user.testNameValue} = ${user?.idTest}`, async () => {
+      test(`Registration ${user.testNameValue} = ${user?.idTest}`, async () => {
         await executeRegisterTest(user);
       });
     });
   });
 
-  test.describe("Rejestracja użytkonika testy od 3 do 5", () => {
+  test.describe("User Registration Tests 3 to 5", () => {
     registerGroupValidation.forEach((user) => {
-      test(`Rejestracja ${user.testNameValue} = ${user?.idTest}`, async () => {
+      test(`Registration ${user.testNameValue} = ${user?.idTest}`, async () => {
         await executeRegisterTest(user);
       });
     });
